@@ -1,0 +1,34 @@
+﻿@model Register
+
+<form action="Edit" method="post">
+	<table>
+		<tr>
+			<td><input type="hidden" name="Id" value=@Model.Id /></td>	
+		</tr>
+		<tr>
+			
+			<td><label for="Name"> your name</label></td>
+			<td><input type="text" name="Name" value=@Model.Name /></td>
+		</tr>
+		<tr>
+			<td><label for="email"> Email</label></td>
+
+			<td><input type="text" name="email" value=@Model.Email /></td>
+		</tr>
+		<tr><td> <label for="password">Enter your password</label></td><td><input type="text" name="password" value=@Model.Password /></td></tr>
+		<tr><td><label for="phoneNumber">Enter your phoneNumber</label></td><td><input type="text" name="phoneNumber" value=@Model.PhoneNumber /></td></tr>
+		<tr><td><label for="address">Enter your Address</label></td><td><input type="text" name="address" value=@Model.Address /></td></tr>
+		<tr><td><label for="dateOfBirth">Enter your DateOfBirth</label></td><td><input type="date" name="dateOfBirth" value=@Model.DateOfBirth.ToString("dd-mm-yyyy") /></td></tr>
+		<tr>
+			<td><label for="gender">Enter your gender</label></td>
+			<td>
+				<input type="radio" name="gender" value="Male"  @(Model.gender == "Male" ? "checked" : "") />Male<br />
+				<input type="radio" name="gender" value="Female"  @(Model.gender == "Female" ? "checked" : "")/>Female<br />
+				<input type="radio" name="gender" value="Others"  @(Model.gender == "Others" ? "checked" : "")/>Others<br />
+			</td>
+		</tr>
+	</table>
+	<input type="submit" value="Update" /> 
+
+
+</form>
