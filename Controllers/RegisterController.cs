@@ -105,5 +105,9 @@ namespace code_first_approch.Controllers
         { 
         
         }
+
+        public void Rajesh()
+        { 
+        }
     }
 }
