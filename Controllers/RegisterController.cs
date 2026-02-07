@@ -101,13 +101,8 @@ namespace code_first_approch.Controllers
             return RedirectToAction("RegisterdataShow");
         }
 
-        public void Hi()
-        { 
-        
-        }
+      
 
-        public void Rajesh()
-        { 
-        }
+        
     }
 }
