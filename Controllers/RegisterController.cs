@@ -9,7 +9,7 @@ namespace code_first_approch.Controllers
     public class RegisterController : Controller
     {
         private readonly MyDataBaseContext _myDataBaseContext;
-        public RegisterController(MyDataBaseContext  myDataBaseContext)
+        public RegisterController(MyDataBaseContext myDataBaseContext)
         {
             _myDataBaseContext = myDataBaseContext;
 
@@ -21,7 +21,7 @@ namespace code_first_approch.Controllers
         {
 
 
-                  List<Register> registers_Tabledata    = _myDataBaseContext.Registers.ToList();  
+            List<Register> registers_Tabledata = _myDataBaseContext.Registers.ToList();
 
 
             return View(registers_Tabledata);
@@ -35,7 +35,7 @@ namespace code_first_approch.Controllers
 
 
         [HttpPost]
-        public IActionResult gettinguserdata(string name,string email, string password, long phoneNumber ,  string address , DateTime dateOfBirth , string Gender)
+        public IActionResult gettinguserdata(string name, string email, string password, long phoneNumber, string address, DateTime dateOfBirth, string Gender)
         {
 
 
@@ -48,11 +48,11 @@ namespace code_first_approch.Controllers
             obj.Address = address;
             obj.DateOfBirth = dateOfBirth;
             obj.gender = Gender;
-            
+
             _myDataBaseContext.Registers.Add(obj);
 
 
-            _myDataBaseContext.SaveChanges();   
+            _myDataBaseContext.SaveChanges();
 
             return RedirectToAction("RegisterdataShow");
         }
@@ -63,14 +63,14 @@ namespace code_first_approch.Controllers
 
             // string genderdata = HttpContext.Request.Query["Gender"];
 
-           Register Singlerowdata = _myDataBaseContext.Registers.Where(r => r.Id == id).FirstOrDefault();
+            Register Singlerowdata = _myDataBaseContext.Registers.Where(r => r.Id == id).FirstOrDefault();
 
-            return     View(Singlerowdata);
+            return View(Singlerowdata);
 
         }
 
         [HttpPost]
-        public IActionResult Edit(Register DATA )
+        public IActionResult Edit(Register DATA)
         {
 
             _myDataBaseContext.Registers.Update(DATA);
@@ -94,15 +94,20 @@ namespace code_first_approch.Controllers
         [HttpPost]
         public IActionResult Delete(Register Singlerowdata)
         {
-           
-           _myDataBaseContext.Registers.Remove(Singlerowdata);
-            _myDataBaseContext.SaveChanges();   
+
+            _myDataBaseContext.Registers.Remove(Singlerowdata);
+            _myDataBaseContext.SaveChanges();
 
             return RedirectToAction("RegisterdataShow");
         }
 
-      
 
-        
+        public void add()
+        {
+
+
+        }
+
+
     }
 }
